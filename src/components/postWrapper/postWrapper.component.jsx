@@ -37,7 +37,6 @@ class PostWrapper extends React.Component{
         return(
             <div className="postWrapper" id={this.props.id}>
                 <div className="postAuthor">
-                    {console.log(this.props.post)}
                     <img src={this.props.post.author.imageUrl} alt=""/>
                     <span>{this.props.post.author.displayName}</span>
                 </div>
