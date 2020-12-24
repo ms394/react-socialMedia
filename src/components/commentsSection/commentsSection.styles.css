@@ -1,0 +1,37 @@
+.commentWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    color:var(--tertiaryColor);
+}
+.avatar, .comment{
+    display: inline;
+}
+.avatar img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.comment p{
+    font-size: 14px;
+}
+.usercomment .comment input{
+    width:500px;
+    border:none;
+    border-bottom: 1px solid var(--primaryColor);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.usercomment .comment input::placeholder{
+    font-size: 14px;
+}
+.usercomment .comment button{
+    padding: 3px;
+    font-size: 12px;
+    background: var(--primaryColor);
+    border: none;
+    color: var(--whiteColor);
+    cursor: pointer;
+}

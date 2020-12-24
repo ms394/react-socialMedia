@@ -1,25 +1,80 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import Header from './components/header/header.component';
+import {createStructuredSelector} from 'reselect'
+import { connect } from "react-redux";
+import SignInSignUpPage from './pages/signIn-signUp-page/signInsignUp.component'
+import { setCurrentUser } from "./redux/users/users.actions";
+import {selectCurrentUser} from './redux/users/user.selector'
+import {auth, createUserProfile} from './firebase/firebaseConfig'
+import {
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import {getAllComments} from './firebase/firebaseConfig'
+import HomePage from './pages/homepage/homepage.components';
+import {getAllPost} from './firebase/firebaseConfig'
+import {setPost} from './redux/posts/posts.actions'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  unsubscribeFromAuth = null;
+
+  async componentDidMount() {
+    const { setCurrentUser, setPosts } = this.props;
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfile(userAuth);
+        userRef.onSnapshot((snapShot) => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
+        });
+        
+      } else {
+        setCurrentUser(userAuth);
+      }
+    });
+
+    const postsRef = await getAllPost()
+    postsRef.onSnapshot(snapshot=>{
+        const allPosts = []
+        snapshot.docs.forEach(post=>{
+          allPosts.push({id: post.id, ...post.data()})
+        })
+        setPosts(allPosts)
+    })
+   
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render(){
+    return (
+      <div className='App'>
+        <Header/>
+        <Switch>
+          <Route exact path='/home' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>
+          <Route exact path='/' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>
+        </Switch>
+      </div>
+      
+  
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  setPosts : (posts)=>dispatch(setPost(posts))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,0 +1,44 @@
+
+.createPostWrapper{
+    padding: 20px 30px;
+    background-color: var(--secondaryColor);
+    margin-bottom: 30px;
+  }
+  .createPostWrapper h2{
+    color: var(--tertiaryColor);
+    margin-bottom: 20px;
+  }
+  
+  .createPost{
+    display: flex;
+    flex-direction: column;
+  }
+  .createPost textarea{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+    width: 50%;
+    margin-bottom: 20px;
+  }
+  .createPost img{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .createPost input[type=submit]{
+    width: 120px;
+    height: 30px;
+    padding: 5px 10px;
+    background-color: var(--primaryColor);
+    border: none;
+    color: var(--secondaryColor);
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .createPost input[type=file]{
+    width: 190px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }

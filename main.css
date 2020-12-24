@@ -1,0 +1,276 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+}
+
+:root{
+--primaryColor:#00a7ce;
+--secondaryColor:#d9e1e8;
+--whiteColor: #fff;
+--tertiaryColor: #232f3e;
+}
+body{
+    background: var(--tertiaryColor);
+}
+.container{
+width: 90%;
+margin: 0 auto;
+}
+  
+  a{
+    color:var(--primaryColor);
+    text-decoration: none;
+  }
+  
+  ul li{
+    list-style: none;
+  }
+  
+  header{
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    
+  }
+  header ul li a{
+    color: var(--whiteColor);
+    font-size: 14px;
+  }
+  
+  .headerContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+  }
+  
+  nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  nav ul li{
+    margin-left: 30px;
+  }  
+  
+  main{
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      max-width: 1230px;
+      grid-gap: 30px;
+  }
+
+.contentArea{
+    width: 100%;
+    height: auto;
+    padding-top:20px;
+}
+
+.side-panel{
+    padding: 100px 0;
+    margin-top:20px;
+    background-color: var(--secondaryColor);
+    display: flex;
+    justify-content: center;
+}
+
+.postWrapper{
+    width: 100%;
+    height: auto;
+    padding: 20px 30px;
+    margin: 0 auto 20px;
+    background-color: white;
+}
+
+.post{
+    width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+    /* background-color: var(--secondaryColor); */
+}
+
+.post img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.post .caption{
+  max-width: 100%;
+  margin: 10px 0px 0px;
+}
+
+
+.interactionSection{
+    width: 50%;
+    height: auto;
+    margin-right:  auto;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px
+    
+}
+.interactionSection .icon{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 10px
+
+}
+.interactionSection .icon strong{
+    font-size: 16px;
+    color: var(--tertiaryColor);
+    cursor: pointer;
+    
+    align-items: center;
+}
+.interactionSection .icon strong.like{
+    opacity: 0.5;
+}
+
+.interactionSection .icon .val{
+  color: var(--secondaryColor);
+  font-size: 10px;
+  padding: 4px;
+  background-color: var(--tertiaryColor);
+  border-radius: 50%;
+}
+
+.commentWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    color:var(--tertiaryColor);
+}
+.avatar, .comment{
+    display: inline;
+}
+.avatar img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.comment input{
+    width: 300%;
+    border:none;
+    border-bottom: 1px solid var(--primaryColor);
+    font-size: 16px;
+}
+
+.createPostWrapper{
+  padding: 20px 30px;
+  background-color: var(--secondaryColor);
+  margin-bottom: 30px;
+}
+.createPostWrapper h3{
+  color: var(--tertiaryColor);
+  margin-bottom: 20px;
+}
+
+.createPost{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px
+}
+.createPost textarea{
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  resize: none;
+}
+.createPost .rightsection{
+  display: grid;
+  grid-template-rows:1fr 1fr  ;
+}
+
+.createPost input[type=submit]{
+  width: 120px;
+  height: 30px;
+  padding: 5px 10px;
+  background-color: var(--primaryColor);
+  border: none;
+  color: var(--secondaryColor);
+  cursor: pointer;
+  font-weight: bold;
+}
+.createPost input[type=file]{
+  width: 190px;
+  cursor: pointer;
+}
+.postAuthor {
+  margin-bottom: 10px;
+  display: flex; 
+  align-items: center;
+}
+.postAuthor img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.postAuthor span{
+  font-weight: bold;
+}
+
+
+.formSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: var(--secondaryColor);
+  margin: auto;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.signInSection,
+.signUpSection{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.signInSection h2,
+.signUpSection h2{
+  margin-bottom: 20px;
+}
+
+.signInSection input,
+.signUpSection input{
+  width: 320px;
+  height: 30px;
+}
+
+.formElement{
+  margin-bottom: 10px;
+}
+.btns{
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-gap: 20px
+}
+
+input[type=submit], input[type=button]{
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 0 10px;
+  background-color: var(--primaryColor);
+  border:none;
+  color: var(--secondaryColor);
+  transition: 0.3s all ease-in-out;
+}
+
+input[type=submit]:hover, input[type=button]:hover{
+  background-color:var(--whiteColor) ;
+  color: var(--tertiaryColor);
+
+}

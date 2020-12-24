@@ -1,0 +1,53 @@
+.formSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: var(--secondaryColor);
+    margin: auto;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  
+  .signInSection,
+  .signUpSection{
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .signInSection h2,
+  .signUpSection h2{
+    margin-bottom: 20px;
+  }
+  
+  .signInSection input,
+  .signUpSection input{
+    width: 320px;
+    height: 30px;
+  }
+  
+  .formElement{
+    margin-bottom: 10px;
+  }
+  .btns{
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-gap: 20px
+  }
+  
+  input[type=submit], input[type=button]{
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0 10px;
+    background-color: var(--primaryColor);
+    border:none;
+    color: var(--secondaryColor);
+    transition: 0.3s all ease-in-out;
+  }
+  
+  input[type=submit]:hover, input[type=button]:hover{
+    background-color:var(--whiteColor) ;
+    color: var(--tertiaryColor);
+  
+  }    

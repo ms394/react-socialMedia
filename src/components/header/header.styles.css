@@ -1,0 +1,28 @@
+header{
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
+    
+  }
+  header ul li a{
+    color: var(--secondaryColor);
+    
+  }
+  
+  .headerContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+  }
+  
+  nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  nav ul li{
+    margin-left: 30px;
+    font-size: 14px;
+  }

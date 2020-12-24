@@ -1,0 +1,44 @@
+.interactionSection{
+    width: 50%;
+    height: auto;
+    margin-right:  auto;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px
+    
+}
+.interactionSection .icon{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 10px
+
+}
+.interactionSection .icon strong{
+    font-size: 16px;
+    color: var(--tertiaryColor);
+    cursor: pointer;
+    
+    align-items: center;
+}
+.interactionSection .icon strong.like{
+    opacity: 0.5;
+}
+
+
+.interactionSection .icon strong.isLiked{
+  opacity: 1;
+  color: var(--primaryColor)
+}
+
+.interactionSection .icon .val{
+  color: var(--secondaryColor);
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--tertiaryColor);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

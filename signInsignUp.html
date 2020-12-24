@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+    </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="headerContent">
+                <div class="logo">
+                    <h1>SOCIAL</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="./index.html">HOME</a></li>
+                        <li><a href="#">CHAT</a></li>
+                        <li><a href="#">NOTIFICATION</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="formSection">
+            <div class="signInSection">
+                <h2>Sign In</h2>
+                <form class="signInForm">
+                  <div class='formElement'>
+                    <label for="email">Email</label>
+                    <br />
+                    <input
+                      name="email"
+                      type="email"
+                    />
+                  </div>
+                  <div class='formElement'>
+                    <label for="password">Password</label>
+                    <br />
+                    <input
+                      name="password"
+                      type="password"
+                    />
+                  </div>
+                  <br />
+                  <div class="btns">
+                    <input type="submit" value="Sign In" />
+                    <input type="button" value="Sign Up with Google"/>
+                  </div>
+                  
+                </form>
+              </div>
+              <div class="signUpSection">
+                <h2>Sign Up</h2>
+                <form onSubmit={this.handleSubmit} className="signUpForm">
+                  <div class='formElement'>
+                    <label for="email">Email</label>
+                    <br />
+                    <input
+                      name="email"
+                      type="email"
+                    />
+                  </div>
+                  <div class='formElement'>
+                    <label for="email">Display Name</label>
+                    <br />
+                    <input
+                      name="displayName"
+                      type="text"
+                    />
+                  </div>
+                  <div class='formElement'>
+                    <label for="password">Password</label>
+                    <br />
+                    <input
+                      name="password"
+                      type="password"
+                    />
+                  </div>
+                  <div class='formElement'>
+                    <label for="confirmPassword">Confirm Password</label>
+                    <br />
+                    <input
+                      name="confirmPassword"
+                      type="password"
+                    />
+                  </div>
+                  <br />
+                  <input type="submit" value="Sign Up" />
+                  <br />
+                  <br />
+                </form>
+              </div>
+          </div>
+
+    </div>
+    
+</body>
+</html>

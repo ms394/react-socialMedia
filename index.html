@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="headerContent">
+                <div class="logo">
+                    <h1>SOCIAL</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">CHAT</a></li>
+                        <li><a href="#">NOTIFICATION</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main>
+            <div class="contentArea">
+                <div class="createPostWrapper">
+                    <h3>Create a Post</h3>
+                    <form class='createPost'>
+                        <textarea name="post" id="" cols="30" rows="5" placeholder="Write your thoughts..."></textarea>
+                        <div class="rightsection">
+                            <input type="file" name="" id="addImage" class="imageUpload" accept=".png,.jpg">
+                            <input type="submit" value="CREATE POST">
+                        </div> 
+                    </form>
+                </div>
+                <div class="postWrapper">
+                    <div class="postAuthor">
+                        <img src="./public/assets/male1.jpg" alt=""/>
+                        <span>Mohsin Sajan</span>
+                    </div>
+                    <div class="post">
+                        <img src="./public/assets/male3.jpg" alt="">
+                        <div class="caption">
+                            <p class="captionText">Hello this is my first post. Hope you guys like it.</p>
+                        </div>
+                    </div>
+                    <div class="interactionSection">
+                        <span class="icon"><span class='val'>10</span><strong class="like"> Like</strong></span>
+                        <span class="icon"><span class='val'>10</span><strong class="cmnt"> Comment</strong></span>
+                        <span class="icon"><strong class="share">Share</strong></span>
+                    </div>
+                    <div class="commentSection">
+                        <div class="commentWrapper">
+                            <div class="avatar">
+                                <img src="./public/assets/male3.jpg" alt=""/>
+                            </div>
+                            <div class="comment"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, pariatur!</p></div>
+                        </div>
+                        <div class="commentWrapper">
+                            <div class="avatar">
+                                <img src="./public/assets/male1.jpg" alt=""/>
+                            </div>
+                            <div class="comment"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, pariatur!</p></div>
+                        </div>
+                        <div class="usercomment">
+                            <div class="commentWrapper">
+                                <div class="avatar">
+                                    <img src="./public/assets/male3.jpg" alt=""/>
+                                </div>
+                                <div class="comment"><input type="text" name="userComment" id="" placeholder="Enter Comment..." /></div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+            <div class="side-panel"><p>Side Panel</p></div>
+        </main>
+    </div>
+    
+</body>
+</html>
