@@ -28,8 +28,8 @@ class SignUp extends React.Component{
         var task = storageRef.put(file)
         task.on('state_changed',
             function progress(snapshot){
-                var percentage = (snapshot.bytesTransferred/snapshot.totalBytes ) * 100;
-                //uploader.value = percentage
+                // var percentage = (snapshot.bytesTransferred/snapshot.totalBytes ) * 100;
+                // //uploader.value = percentage
             },
             function error(error){
                 alert(error.message)
@@ -81,7 +81,7 @@ class SignUp extends React.Component{
                 <h2>Sign Up</h2>
                 <form onSubmit={this.handleSubmit} className="signUpForm">
                     <div className='formElement'>
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         <br />
                         <input
                             name="email"
@@ -91,7 +91,7 @@ class SignUp extends React.Component{
                         />
                     </div>
                     <div className='formElement'>
-                        <label for="email">Display Name</label>
+                        <label htmlFor="email">Display Name</label>
                         <br />
                         <input
                             name="displayName"
@@ -101,7 +101,7 @@ class SignUp extends React.Component{
                         />
                     </div>
                     <div className='formElement'>
-                        <label for="password">Password</label>
+                        <label htmlFor="password" >Password</label>
                         <br />
                         <input
                             name="password"
@@ -111,7 +111,7 @@ class SignUp extends React.Component{
                         />
                     </div>
                     <div className='formElement'>
-                        <label for="confirmPassword">Confirm Password</label>
+                        <label htmlFor="confirmPassword">Confirm Password</label>
                         <br />
                         <input
                             name="confirmPassword"

@@ -4,14 +4,14 @@ import {connect} from 'react-redux'
 import {addComment} from '../../redux/posts/posts.actions'
 import {createStructuredSelector} from 'reselect'
 import {selectCurrentUser} from '../../redux/users/user.selector'
-import {getAllComments} from '../../firebase/firebaseConfig'
 
 class CommentSection extends React.Component{
 
     constructor(){
         super()
         this.state ={
-            comment:''
+            comment:'',
+            comments:[]
         }
     }
 
@@ -32,11 +32,13 @@ class CommentSection extends React.Component{
         })
     }
 
+   
+
     render(){
         return( 
             <div className="commentSection">
-                {this.props.comments?(
-                    this.props.comments.map(comment=>(
+                {this.state.comments?(
+                    this.state.comments.map(comment=>(
                         <div className="commentWrapper" key={comment.id}>
                             <div className="avatar">
                                 <img src={comment.user.imageUrl} alt=""/>

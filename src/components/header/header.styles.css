@@ -3,7 +3,7 @@ header{
     color: var(--secondaryColor);
     
   }
-  header ul li a{
+  header ul li{
     color: var(--secondaryColor);
     
   }
@@ -25,4 +25,45 @@ header{
   nav ul li{
     margin-left: 30px;
     font-size: 14px;
+    cursor: pointer;
+  }
+
+  .notification{
+    position: relative;
+  }
+  .dot:after{
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.74);
+    margin-bottom: 08px;
+  }
+  .notification .show{
+    display: block
+  }
+
+  .notification .hide{
+    display:  none;
+  }
+  .notificationPopup{
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    transform: translateX(50%);
+    padding: 10px 10px;
+    width: 300px;
+    background-color: var(--whiteColor);
+  }
+
+
+  .notificationPopup ul{
+    display: block;
+    
+  }
+  .notificationPopup ul li{
+    color: var(--tertiaryColor);
+    font-size: 12px;
+    margin-bottom: 20px;
   }

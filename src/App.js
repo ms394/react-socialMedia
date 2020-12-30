@@ -9,13 +9,11 @@ import {selectCurrentUser} from './redux/users/user.selector'
 import {auth, createUserProfile} from './firebase/firebaseConfig'
 import {
   Switch,
-  Route,
-  Redirect
+  Route
 } from "react-router-dom";
-import {getAllComments} from './firebase/firebaseConfig'
 import HomePage from './pages/homepage/homepage.components';
 import {getAllPost} from './firebase/firebaseConfig'
-import {setPost} from './redux/posts/posts.actions'
+import {setPost, addCommentsToState} from './redux/posts/posts.actions'
 
 class App extends React.Component{
   unsubscribeFromAuth = null;
@@ -36,7 +34,8 @@ class App extends React.Component{
         setCurrentUser(userAuth);
       }
     });
-
+    
+    // Get all the posts
     const postsRef = await getAllPost()
     postsRef.onSnapshot(snapshot=>{
         const allPosts = []
@@ -45,6 +44,10 @@ class App extends React.Component{
         })
         setPosts(allPosts)
     })
+
+    // Get all Comments and add it to State
+    this.props.addComments()
+    console.log('inside app componet did mount')
    
   }
 
@@ -53,6 +56,7 @@ class App extends React.Component{
   }
 
   render(){
+    console.log('inside app render')
     return (
       <div className='App'>
         <Header/>
@@ -73,7 +77,8 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-  setPosts : (posts)=>dispatch(setPost(posts))
+  setPosts : (posts)=>dispatch(setPost(posts)),
+  addComments: ()=>dispatch(addCommentsToState())
 });
 
 

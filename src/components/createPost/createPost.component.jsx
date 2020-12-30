@@ -37,7 +37,7 @@ class CreatePost extends React.Component{
         var task = storageRef.put(file)
         task.on('state_changed',
             function progress(snapshot){
-                var percentage = (snapshot.bytesTransferred/snapshot.totalBytes ) * 100;
+                // var percentage = (snapshot.bytesTransferred/snapshot.totalBytes ) * 100;
                 //uploader.value = percentage
             },
             function error(error){

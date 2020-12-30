@@ -3,18 +3,19 @@ import './content-area.styles.css'
 import PostWrapper from '../postWrapper/postWrapper.component'
 import CreatePost from '../createPost/createPost.component'
 import {connect} from 'react-redux'
-import {createStructuredSelector}  from 'reselect'
-import {selectAllPosts} from '../../redux/posts/posts.selector'
-import {setPost} from '../../redux/posts/posts.actions'
-import {getAllPost, getAllComments} from '../../firebase/firebaseConfig'
+import { setPost, addCommentsToState} from '../../redux/posts/posts.actions'
+
 
 class ContentArea extends React.Component{
+    
     render(){
         const {posts} = this.props
         return(
             <div className="contentArea">
                 <CreatePost/>
                 {posts.map(post=>{
+                    console.log(post)
+                    console.log(post.comments)
                     return (<PostWrapper post={post} id={post.id} key={post.id}/>)
                 })}
                 
@@ -24,7 +25,8 @@ class ContentArea extends React.Component{
 }
 
 const mapDispatchToProps = (dispatch)=>({
-    setPosts : (posts)=>dispatch(setPost(posts))
+    setPosts : (posts)=>dispatch(setPost(posts)),
+    addComments: ()=>dispatch(addCommentsToState())
 })
 
 const mapStateToProps = state=>({

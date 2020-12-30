@@ -5,14 +5,15 @@ import {toggleLike} from '../../redux/posts/posts.actions'
 import {selectCurrentUser} from '../../redux/users/user.selector'
 import {createStructuredSelector} from 'reselect'
 
-class InteractionSection extends React.Component{
 
+class InteractionSection extends React.Component{
+    
     handleClick = ()=>{
         const userId = this.props.currentUser.id
-        const postId = this.props.id
-        console.log(postId);
+        console.log(this.props.currentUser)
         const {toggleLike} = this.props
-        toggleLike([postId,userId])
+        toggleLike([this.props.post,userId, this.props.currentUser.displayName])
+        // addActivity(this.props.post, userId, 'like')
     }
 
     render(){
@@ -20,7 +21,11 @@ class InteractionSection extends React.Component{
             <div className="interactionSection" id={this.props.id}>
                 <span className="icon">
                     <span className='val'>{(this.props.post.likes).length}</span>
-                    <strong className={`like ${this.props.post.likes.includes(this.props.currentUser.id)?'isLiked':''}`} onClick={this.handleClick}> Like</strong>
+                    <strong className={`like ${this.props.post.likes.includes(this.props.currentUser.id)?'isLiked':''}`} 
+                            onClick={this.handleClick}
+                        > 
+                            Like
+                    </strong>
                 </span>
                 <span className="icon"><span className='val'>{this.props.comments.length}</span><strong className="cmnt"> Comment</strong></span>
                 <span className="icon"><strong className="share">Share</strong></span>
@@ -34,7 +39,7 @@ const mapStateToProps = createStructuredSelector({
   })
 
 const mapDispatchToProps = (dispatch)=>({
-        toggleLike: ([postId, userId])=>dispatch(toggleLike([postId, userId]))
+        toggleLike: ([post, userId, displayName])=>dispatch(toggleLike([post, userId, displayName]))
     }
 )
     
