@@ -26,6 +26,7 @@ export const createUserProfile = async (userAuth, additionalData)=>{
                 displayName,
                 email,
                 createdAt,
+                notifications:[],
                 ...additionalData
             })
         }catch(error){
@@ -48,7 +49,8 @@ export const createPostDocument = async (user,{post, imageUrl})=>{
                 imageUrl,
                 createdAt,
                 author: user,
-                likes: []
+                likes: [],
+                comments:[]
             })
         }catch(error){
             console.log(error.message)
@@ -60,7 +62,6 @@ export const createPostDocument = async (user,{post, imageUrl})=>{
 // Get All the posts in the firebase
 export const getAllPost = async ()=>{
     const postsRef = firestore.collection("posts").orderBy("createdAt", "desc")
-    
     return postsRef
 }   
 
@@ -105,51 +106,47 @@ export const addLikeToPost = async (postSent,userId, displayName)=>{
 
 // Add Comments to a Post. 
 export const addCommentToPost = async (comment, user, postId)=>{
-    const commentRef = firestore.collection('posts').doc(postId).collection('comments')
-    try{    
-        await commentRef.add({
-            user: user,
-            comment: comment,
-            commentTime: (new Date())
+    const postRef = firestore.collection('posts').doc(postId)
+    const snapshot = await postRef.get()
+    const post = await snapshot.data()
+    function addComment(user, comment){
+        post.comments.push({user:user, comment:comment})
+        return post.comments
+    }
+    try {
+        await postRef.set({
+            ...post,
+            comments: addComment(user,comment)
         })
     }catch(error){
-        console.log(error);
+       alert(error.message);
     }
     
 }
-
-// Get All Comments for a particular post from firebase
-export const getAllComments = async (postId)=>{
-    const commentsRef = firestore.collection('posts').doc(postId).collection('comments').orderBy("commentTime", "desc")
-    return commentsRef
-}
-
-
 // Add the activity in the notification node of a user.
 export const addActivity = async (post, userId, displayName, activity)=>{
         const authorId = post.author.id
-        const userRef = firestore.collection('users').doc(authorId).collection('notifications')
-        try{
-            await userRef.add({
+        const userRef = firestore.collection('users').doc(authorId)
+        const snapshot = await userRef.get()
+        const user = await snapshot.data()
+
+        function addNotifications(userId, displayName, post, activity){
+            user.notifications.push({
                 postId: post.id,
                 userId,
                 displayName,
                 activity
             })
+            return user.notifications
+        }
+        try{
+            await userRef.set({
+                ...user,
+                notifications: addNotifications(userId, displayName, post, activity)
+            })
         }catch(error){
             alert(error.message)
         }
-}
-
-// get all the notifications of a user
-export const getAllNotifications = async (userId)=>{
-    try{
-        var userRef = firestore.collection('users').doc(userId).collection('notifications')
-    }catch(err){
-        console.log(err)
-    }
-    return userRef
-    
 }
 
 

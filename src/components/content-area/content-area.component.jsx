@@ -10,12 +10,11 @@ class ContentArea extends React.Component{
     
     render(){
         const {posts} = this.props
+        
         return(
             <div className="contentArea">
                 <CreatePost/>
                 {posts.map(post=>{
-                    console.log(post)
-                    console.log(post.comments)
                     return (<PostWrapper post={post} id={post.id} key={post.id}/>)
                 })}
                 

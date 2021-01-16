@@ -10,10 +10,11 @@ class CommentSection extends React.Component{
     constructor(){
         super()
         this.state ={
-            comment:'',
-            comments:[]
+            comment:''
         }
     }
+
+   
 
     handleChange =(e)=>{
         const {name, value} = e.target
@@ -35,11 +36,12 @@ class CommentSection extends React.Component{
    
 
     render(){
+        const comments = this.props.post.comments
         return( 
             <div className="commentSection">
-                {this.state.comments?(
-                    this.state.comments.map(comment=>(
-                        <div className="commentWrapper" key={comment.id}>
+                {comments.length>0?(
+                    comments.slice(comments.length-2, comments.length).map((comment, index)=>(
+                        <div className="commentWrapper" key={index}>
                             <div className="avatar">
                                 <img src={comment.user.imageUrl} alt=""/>
                             </div>
@@ -47,7 +49,7 @@ class CommentSection extends React.Component{
                         </div>
                     ))
                     
-                ):(<p>There are no comments yet!!</p>)}
+                ):(<p className='noCommentsMsg'>There are no comments yet!!</p>)}
                 <div className="usercomment">
                     <div className="commentWrapper">
                         <div className="avatar">

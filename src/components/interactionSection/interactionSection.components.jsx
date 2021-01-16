@@ -10,24 +10,24 @@ class InteractionSection extends React.Component{
     
     handleClick = ()=>{
         const userId = this.props.currentUser.id
-        console.log(this.props.currentUser)
         const {toggleLike} = this.props
         toggleLike([this.props.post,userId, this.props.currentUser.displayName])
-        // addActivity(this.props.post, userId, 'like')
+        
     }
 
     render(){
+        const {post, id, currentUser} = this.props
         return(
-            <div className="interactionSection" id={this.props.id}>
+            <div className="interactionSection" id={id}>
                 <span className="icon">
-                    <span className='val'>{(this.props.post.likes).length}</span>
-                    <strong className={`like ${this.props.post.likes.includes(this.props.currentUser.id)?'isLiked':''}`} 
+                    <span className='val'>{(post.likes).length}</span>
+                    <strong className={`like ${post.likes.includes(currentUser.id)?'isLiked':''}`} 
                             onClick={this.handleClick}
                         > 
                             Like
                     </strong>
                 </span>
-                <span className="icon"><span className='val'>{this.props.comments.length}</span><strong className="cmnt"> Comment</strong></span>
+                <span className="icon"><span className='val'>{post.comments.length}</span><strong className="cmnt"> Comment</strong></span>
                 <span className="icon"><strong className="share">Share</strong></span>
             </div>
         )
@@ -40,6 +40,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch)=>({
         toggleLike: ([post, userId, displayName])=>dispatch(toggleLike([post, userId, displayName]))
+        
     }
 )
     

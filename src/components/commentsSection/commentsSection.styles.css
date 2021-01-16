@@ -36,3 +36,7 @@
     color: var(--whiteColor);
     cursor: pointer;
 }
+.noCommentsMsg{
+    font-size: 13px;
+    margin-bottom: 10px;
+}

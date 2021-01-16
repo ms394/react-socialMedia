@@ -44,10 +44,6 @@ class App extends React.Component{
         })
         setPosts(allPosts)
     })
-
-    // Get all Comments and add it to State
-    this.props.addComments()
-    console.log('inside app componet did mount')
    
   }
 
@@ -56,10 +52,9 @@ class App extends React.Component{
   }
 
   render(){
-    console.log('inside app render')
     return (
       <div className='App'>
-        <Header/>
+        <Header currentUser={this.props.currentUser}/>
         <Switch>
           <Route exact path='/home' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>
           <Route exact path='/' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>

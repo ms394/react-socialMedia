@@ -18,8 +18,3 @@ payload:([comment,user,postId])
 export const addCommentsToState = ()=>({
     type: postActionTypes.ADD_COMMENT_TO_STATE
 })
-
-export const addActivity = ([post, userId, activity]) => ({
-    type: postActionTypes.ADD_ACTIVITY,
-    payload:([post, userId, activity])
-})

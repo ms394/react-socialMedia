@@ -21,20 +21,8 @@ class PostWrapper extends React.Component{
         }
     }
     
-    // componentDidMount(){
-    //     const allComments = await getAllComments(this.props.post.id)
-    //     allComments.onSnapshot(snapshot=>{
-    //         const allComments = []
-    //         snapshot.docs.forEach(comment=>{
-    //             allComments.push({id: comment.id, ...comment.data()})
-    //         })
-    //         this.setState({allComments: [...allComments]})
-    //     }
-    //     )
-    // }
-
     render(){
-        console.log('inside postWrapper render')
+        
         return(
             <div className="postWrapper" id={this.props.id}>
                 <div className="postAuthor">
