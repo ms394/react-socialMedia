@@ -31,7 +31,7 @@ class Header extends React.Component{
                         </div>
                         <nav>
                             <ul>  
-                                <li className={`notification ${this.state.notifications?'dot':null} `} onClick={()=>this.setState({notificationPopup:!this.state.notificationPopup})}>
+                                <li className={`notification ${this.state.notifications.length>0?'dot':null} `} onClick={()=>this.setState({notificationPopup:!this.state.notificationPopup})}>
                                     Notification
                                     <div className={`notificationPopup ${this.state.notificationPopup?'show':'hide'}`}>
                                         <ul>        
