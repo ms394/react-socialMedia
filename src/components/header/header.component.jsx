@@ -38,6 +38,8 @@ class Header extends React.Component{
                                             {this.state.notifications.map(notification=>{
                                                     if(notification.activity==='like'){
                                                         return <li key={notification.id}><strong>{notification.displayName}</strong>  liked your post</li>
+                                                    }else if(notification.activity==='comment'){
+                                                        return <li key={notification.id}><strong>{notification.displayName}</strong>  commented on your post</li>
                                                     }
                                                 }   
                                             )}

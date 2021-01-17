@@ -105,7 +105,8 @@ export const addLikeToPost = async (postSent,userId, displayName)=>{
 
 
 // Add Comments to a Post. 
-export const addCommentToPost = async (comment, user, postId)=>{
+export const addCommentToPost = async (comment, user, postSent)=>{
+    const postId =  postSent.id
     const postRef = firestore.collection('posts').doc(postId)
     const snapshot = await postRef.get()
     const post = await snapshot.data()
@@ -114,6 +115,7 @@ export const addCommentToPost = async (comment, user, postId)=>{
         return post.comments
     }
     try {
+        addActivity(postSent, user.id, user.displayName, 'comment')
         await postRef.set({
             ...post,
             comments: addComment(user,comment)

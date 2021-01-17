@@ -27,7 +27,7 @@ class CommentSection extends React.Component{
         e.preventDefault()
         const {comment} = this.state
         const {post, addComment, currentUser} = this.props
-        addComment([comment,currentUser, post.id ])
+        addComment([comment,currentUser, post ])
         this.setState({
             comment: ''
         })
