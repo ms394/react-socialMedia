@@ -9,11 +9,13 @@ import {selectCurrentUser} from './redux/users/user.selector'
 import {auth, createUserProfile} from './firebase/firebaseConfig'
 import {
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 import HomePage from './pages/homepage/homepage.components';
 import {getAllPost} from './firebase/firebaseConfig'
 import {setPost, addCommentsToState} from './redux/posts/posts.actions'
+import PostDetailsPage from './pages/postDetails/postDetails.component'
+
 
 class App extends React.Component{
   unsubscribeFromAuth = null;
@@ -52,12 +54,14 @@ class App extends React.Component{
   }
 
   render(){
+    console.log(this.props) 
     return (
       <div className='App'>
         <Header currentUser={this.props.currentUser}/>
         <Switch>
           <Route exact path='/home' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>
           <Route exact path='/' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>
+          <Route exact path='/post/:postId' render={()=>this.props.currentUser?(<PostDetailsPage/>): (<SignInSignUpPage/>)}/>
         </Switch>
       </div>
       

@@ -8,7 +8,7 @@ import {createStructuredSelector } from 'reselect'
 import {connect} from 'react-redux'
 import { selectAllPosts } from '../../redux/posts/posts.selector'
 import { setPost, addCommentsToState} from '../../redux/posts/posts.actions'
-
+import { withRouter } from "react-router-dom";
 
 
 class PostWrapper extends React.Component{
@@ -22,16 +22,16 @@ class PostWrapper extends React.Component{
     }
     
     render(){
-        
+        const {history, id, post} = this.props
         return(
-            <div className="postWrapper" id={this.props.id}>
-                <div className="postAuthor">
-                    <img src={this.props.post.author.imageUrl} alt=""/>
-                    <span>{this.props.post.author.displayName}</span>
+            <div className="postWrapper" id={id}>
+                <div className="postAuthor" onClick={()=>history.push(`post/${id}`)}>
+                    <img src={post.author.imageUrl} alt=""/>
+                    <span>{post.author.displayName}</span>
                 </div>
-                <Post post={this.props.post}/>
-                <InteractionSection id={this.props.id} post={this.props.post} comments={this.state.allComments}/>
-                <CommentSection id={this.props.id} post={this.props.post}/>
+                <Post post={post} />
+                <InteractionSection id={id} post={post} comments={this.state.allComments}/>
+                <CommentSection id={id} post={post}/>
             </div>
         )
     }
@@ -47,5 +47,5 @@ const mapStateToProps = createStructuredSelector({
     
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostWrapper)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostWrapper))
 

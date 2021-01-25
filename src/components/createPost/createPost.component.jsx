@@ -17,12 +17,17 @@ class CreatePost extends React.Component{
     handleSubmit = async (e)=>{
         e.preventDefault()
         const {post, imageUrl} = this.state
-        try{
-            await createPostDocument(this.props.currentUser, {post, imageUrl})
-            this.setState({post:"", imageUrl:""})
-        }catch(error){
-            console.log(error)
+        if(post || imageUrl){
+            try{
+                await createPostDocument(this.props.currentUser, {post, imageUrl})
+                this.setState({post:"", imageUrl:""})
+            }catch(error){
+                console.log(error)
+            }
+        }else{
+            alert('Enter Text or Upload Image')
         }
+        
     }
 
     handleChange =(e)=>{
@@ -32,7 +37,6 @@ class CreatePost extends React.Component{
 
     handleFileChange =(e)=>{
         const file = e.target.files[0]
-        console.log(file)
         var storageRef = storage.ref(`postImages/${file.name}`)
         var task = storageRef.put(file)
         task.on('state_changed',

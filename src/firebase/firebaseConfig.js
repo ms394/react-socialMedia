@@ -38,7 +38,7 @@ export const createUserProfile = async (userAuth, additionalData)=>{
 
 // Create a post in firebase
 export const createPostDocument = async (user,{post, imageUrl})=>{
-    if(!post) return false
+    //if(!post) return false
     const postRef = firestore.collection(`posts`)
     const snapshot = await postRef.get()
     if(!snapshot.exists){

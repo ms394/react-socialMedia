@@ -1,7 +1,7 @@
 
 .createPostWrapper{
     padding: 20px 30px;
-    background-color: var(--secondaryColor);
+    background-color: var(--whiteColor);
     margin-bottom: 30px;
   }
   .createPostWrapper h2{
@@ -15,7 +15,7 @@
   }
   .createPost textarea{
     padding: 5px;
-    border: none;
+    border: 1px solid var(--tertiaryColor);
     border-radius: 5px;
     resize: none;
     width: 50%;

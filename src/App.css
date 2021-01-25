@@ -7,13 +7,13 @@
 }
 
 :root{
-  --primaryColor:#2d9b55;
-  --secondaryColor:#d8ffd8;
+  --primaryColor:#009AFF;
+  --secondaryColor:#F1F1E6;
   --whiteColor: #fff;
   --tertiaryColor: #232f3e;
   }
 body{
-  background: var(--tertiaryColor);
+  background: var(--secondaryColor);
 }
 .container{
 width: 90%;
