@@ -61,7 +61,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path='/home' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>
           <Route exact path='/' render={()=>this.props.currentUser?(<HomePage/>): (<SignInSignUpPage/>)}/>
-          <Route exact path='/post/:postId' render={()=>this.props.currentUser?(<PostDetailsPage/>): (<SignInSignUpPage/>)}/>
+          {/* <Route exact path='/post/:postId' render={()=>this.props.currentUser?(<PostDetailsPage/>): (<SignInSignUpPage/>)}/> */}
         </Switch>
       </div>
       
