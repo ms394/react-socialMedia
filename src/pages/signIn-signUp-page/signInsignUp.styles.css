@@ -1,7 +1,7 @@
 .formSection {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    color: var(--secondaryColor);
+    color: var(--tertiaryColor);
     margin: auto;
     align-items: center;
     height: 100vh;
